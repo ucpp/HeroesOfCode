@@ -1,0 +1,23 @@
+# OSX crap
+.DS_Store
+
+/Library
+/Temp
+*.csproj
+*.sln
+*.suo
+*.userprefs
+
+/Assets/_my/
+/Assets/_my\.meta
+/Build/
+/Builds/
+/obj/
+*.apk
+*.obb
+
+/\.vs/
+Packages/manifest.json
+*.swatch
+
+*.unityproj
