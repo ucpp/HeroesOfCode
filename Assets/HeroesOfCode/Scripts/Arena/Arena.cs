@@ -29,7 +29,8 @@ namespace Maryan.HeroesOfCode
             _computerBattleBehaviour.CheckState();
             if(_computerBattleBehaviour.IsDie)
             {
-                //end fight, you win!
+                //конец боя, вы победили!
+                //TODO: добавить показ окна победы
                 _onWinBattle.Invoke();
             }
             else
@@ -45,7 +46,7 @@ namespace Maryan.HeroesOfCode
             _playerBattleBehaviour.CheckState();
             if(_playerBattleBehaviour.IsDie)
             {
-                //end fight, you lose
+                //конец боя вы проиграли
                 _onLoseBattle.Invoke();
             }
             else

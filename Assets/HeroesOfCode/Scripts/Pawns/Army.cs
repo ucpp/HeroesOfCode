@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Army), menuName = EditorUtils.PawnsMenu + nameof(Army), order = 0)]
+    [CreateAssetMenu(fileName = nameof(Army), menuName = EditorUtils.PawnsMenu + nameof(Army))]
     public class Army : ScriptableObject
     {
         public IEnumerable<SquadData> Squads

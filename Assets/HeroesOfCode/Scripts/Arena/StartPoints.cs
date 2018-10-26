@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(StartPoints), menuName = EditorUtils.GridSystem + nameof(StartPoints), order = 4)]
+    [CreateAssetMenu(fileName = nameof(StartPoints), menuName = EditorUtils.GridSystem + nameof(StartPoints))]
     public class StartPoints : ScriptableObject
     {
         public int Count

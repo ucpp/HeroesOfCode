@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Hero), menuName = EditorUtils.PawnsMenu + nameof(Hero), order = 0)]
+    [CreateAssetMenu(fileName = nameof(Hero), menuName = EditorUtils.PawnsMenu + nameof(Hero))]
     public class Hero : ScriptableObject
     {
         public Vector2 Position

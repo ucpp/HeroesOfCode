@@ -17,6 +17,7 @@ namespace Maryan.HeroesOfCode
         {
             get { return _height; }
         }
+
         [SerializeField]
         private int _height;
 

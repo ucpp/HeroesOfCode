@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(UnitColoring), menuName = EditorUtils.Modificators + nameof(UnitColoring), order = 3)]
+    [CreateAssetMenu(fileName = nameof(UnitColoring), menuName = EditorUtils.Modificators + nameof(UnitColoring))]
     public class UnitColoring : UnitModificator
     {
         [SerializeField]

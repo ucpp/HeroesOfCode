@@ -8,8 +8,8 @@ namespace Maryan.HeroesOfCode
     {
         public enum Type : int
         {
-            Empty = 0,
-            Impassable = 1
+            Empty = 0, //проходимая клетка
+            Impassable = 1 //непроходимая
         }
 
         public int Value

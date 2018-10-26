@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(WayCreator), menuName = EditorUtils.GridSystem + nameof(WayCreator), order = 4)]
+    [CreateAssetMenu(fileName = nameof(WayCreator), menuName = EditorUtils.GridSystem + nameof(WayCreator))]
     public class WayCreator : ScriptableObject
     {
         public Way Way

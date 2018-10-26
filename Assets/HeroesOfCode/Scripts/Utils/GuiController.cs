@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(GuiController), menuName = EditorUtils.UtilsMenu + nameof(GuiController), order = 0)]
+    [CreateAssetMenu(fileName = nameof(GuiController), menuName = EditorUtils.UtilsMenu + nameof(GuiController))]
     public class GuiController : ScriptableObject
     {
         public UnityEvent OnPressSkill

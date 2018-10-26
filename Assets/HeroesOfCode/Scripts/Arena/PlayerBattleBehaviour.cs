@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(PlayerBattleBehaviour), menuName = EditorUtils.UtilsMenu + nameof(PlayerBattleBehaviour), order = 0)]
+    [CreateAssetMenu(fileName = nameof(PlayerBattleBehaviour), menuName = EditorUtils.UtilsMenu + nameof(PlayerBattleBehaviour))]
     public class PlayerBattleBehaviour : BattleBehaviour
     {
         public override Army Army

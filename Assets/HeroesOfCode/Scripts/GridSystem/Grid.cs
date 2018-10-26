@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Grid), menuName = EditorUtils.GridSystem + nameof(Grid), order = 4)]
+    [CreateAssetMenu(fileName = nameof(Grid), menuName = EditorUtils.GridSystem + nameof(Grid))]
     public class Grid : ScriptableObject
     {
         public Vector2 StartPosition

@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Way), menuName = EditorUtils.GridSystem + nameof(Way), order = 4)]
+    [CreateAssetMenu(fileName = nameof(Way), menuName = EditorUtils.GridSystem + nameof(Way))]
     public class Way : ScriptableObject
     {
         public Point[] Path

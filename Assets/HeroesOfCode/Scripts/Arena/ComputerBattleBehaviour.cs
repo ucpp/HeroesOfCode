@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(ComputerBattleBehaviour), menuName = EditorUtils.UtilsMenu + nameof(ComputerBattleBehaviour), order = 0)]
+    [CreateAssetMenu(fileName = nameof(ComputerBattleBehaviour), menuName = EditorUtils.UtilsMenu + nameof(ComputerBattleBehaviour))]
     public class ComputerBattleBehaviour : BattleBehaviour
     {
         public override Army Army

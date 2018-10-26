@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Heal), menuName = EditorUtils.SkillsMenu + nameof(Heal), order = 0)]
+    [CreateAssetMenu(fileName = nameof(Heal), menuName = EditorUtils.SkillsMenu + nameof(Heal))]
     public class Heal : Skill
     {
         [Tooltip("Healing power as a percentage of maximum health.")]

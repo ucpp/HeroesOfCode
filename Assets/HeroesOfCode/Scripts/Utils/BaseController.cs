@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(BaseController), menuName = EditorUtils.UtilsMenu + nameof(BaseController), order = 0)]
+    [CreateAssetMenu(fileName = nameof(BaseController), menuName = EditorUtils.UtilsMenu + nameof(BaseController))]
     public class BaseController : ScriptableObject
     {
         public bool IsEnable

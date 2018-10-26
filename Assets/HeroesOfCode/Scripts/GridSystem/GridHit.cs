@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(GridHit), menuName = EditorUtils.GridSystem + nameof(GridHit), order = 4)]
+    [CreateAssetMenu(fileName = nameof(GridHit), menuName = EditorUtils.GridSystem + nameof(GridHit))]
     public class GridHit : ScriptableObject
     {
         [SerializeField]

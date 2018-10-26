@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(Frenzy), menuName = EditorUtils.SkillsMenu + nameof(Frenzy), order = 0)]
+    [CreateAssetMenu(fileName = nameof(Frenzy), menuName = EditorUtils.SkillsMenu + nameof(Frenzy))]
     public class Frenzy : Skill
     {
         [Tooltip("Base force (C).")]
@@ -15,6 +15,7 @@ namespace Maryan.HeroesOfCode
 
         public override void Cast()
         {
+            //TODO: добавить реализацию
         }
     }
 }

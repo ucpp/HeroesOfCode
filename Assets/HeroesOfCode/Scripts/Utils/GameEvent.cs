@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(GameEvent), menuName = EditorUtils.UtilsMenu + nameof(GameEvent), order = 0)]
+    [CreateAssetMenu(fileName = nameof(GameEvent), menuName = EditorUtils.UtilsMenu + nameof(GameEvent))]
     public class GameEvent : ScriptableObject
     {
         private readonly List<GameEventListener> _eventListeners = new List<GameEventListener>();

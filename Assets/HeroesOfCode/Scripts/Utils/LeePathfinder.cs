@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    [CreateAssetMenu(fileName = nameof(LeePathfinder), menuName = EditorUtils.GridSystem + nameof(LeePathfinder), order = 4)]
+    [CreateAssetMenu(fileName = nameof(LeePathfinder), menuName = EditorUtils.GridSystem + nameof(LeePathfinder))]
     public class LeePathfinder : Pathfinder
     {
         private const int WALL = -1; // непроходимая ячейка
