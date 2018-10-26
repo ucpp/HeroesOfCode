@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e47171477c1db4f9b8f10df5e19862, type: 3}
+  m_Name: ComputerBattleBehaviour
+  m_EditorClassIdentifier: 
+  _startPoints: {fileID: 11400000, guid: ecc5ca97fea70fc4298b0ec61cbe66a7, type: 2}
+  _unitRuntimeSet: {fileID: 11400000, guid: b459afe3e15c58e418f8df7251d72761, type: 2}
+  _timeToStartAttack: 1

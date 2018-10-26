@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ef8fc8d82305645a570ab9399409bd, type: 3}
+  m_Name: PlayerBattleBehaviour
+  m_EditorClassIdentifier: 
+  _startPoints: {fileID: 11400000, guid: 6d2c97cb5375dee4daf1f335d0af6c66, type: 2}
+  _army: {fileID: 11400000, guid: c44ca087d5c079e48a58dc567563fe7f, type: 2}
+  _controller: {fileID: 11400000, guid: a1ed6cb5f7b00914ea3503eb70e2d291, type: 2}
+  _guiController: {fileID: 11400000, guid: 76e872f6b5fa41444a04da936eeca447, type: 2}
+  _unitRuntimeSet: {fileID: 11400000, guid: b459afe3e15c58e418f8df7251d72761, type: 2}

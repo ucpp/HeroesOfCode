@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478b5aaa22a1058418982b6fa24f15bf, type: 3}
+  m_Name: HeroBaseController
+  m_EditorClassIdentifier: 
+  _gridHit: {fileID: 11400000, guid: 9fbe9d6754a2e2b4aa6a969ac6191400, type: 2}
