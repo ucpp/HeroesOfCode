@@ -15,7 +15,7 @@ namespace Maryan.HeroesOfCode
             {
                 if(!unit.IsDie)
                 {
-                    unit.GetAttack(_force);
+                    unit.GetHit(_force);
                 }
             }
         }

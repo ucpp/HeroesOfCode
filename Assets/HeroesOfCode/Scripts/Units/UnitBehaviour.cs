@@ -86,7 +86,7 @@ namespace Maryan.HeroesOfCode
             _selectModificator.Stop(transform);
         }
 
-        public void GetAttack(int force)
+        public void GetHit(int force)
         {
             Health -= force;
             var maxHealth = _startCount * _squad.Unit.Health;

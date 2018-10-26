@@ -38,7 +38,7 @@ namespace Maryan.HeroesOfCode
             if(unit != null && !unit.IsOwn)
             {
                 var attack = ActiveSquad.AttackForce;
-                unit.GetAttack(attack);
+                unit.GetHit(attack);
                 EndAttack();
             }
         }

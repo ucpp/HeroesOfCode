@@ -30,7 +30,7 @@ namespace Maryan.HeroesOfCode
                 {
                     var oppositeSquad = GetRandomSquad();
                     var attack = ActiveSquad.AttackForce;
-                    oppositeSquad.GetAttack(attack);
+                    oppositeSquad.GetHit(attack);
                     EndAttack();
                 }
             }
