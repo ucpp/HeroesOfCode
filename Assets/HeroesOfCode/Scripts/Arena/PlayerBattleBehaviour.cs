@@ -20,6 +20,8 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private UnitRuntimeSet _unitRuntimeSet;
 
+        private bool _isActivateTargetSkill = false;
+
         public override void Initialize()
         {
             if(Army == null)
@@ -38,7 +40,22 @@ namespace Maryan.HeroesOfCode
             if(unit != null && !unit.IsOwn)
             {
                 var attack = ActiveSquad.AttackForce;
-                unit.GetHit(attack);
+                if(_isActivateTargetSkill)
+                {
+                    _isActivateTargetSkill = false;
+                    ActiveSquad.InitializeSkill();
+                    var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<UnitBehaviour>;
+                    if(targetableSkill != null)
+                    {
+                        targetableSkill.Target = unit;
+                        ActiveSquad.Unit.Skill.Cast();
+                    }
+                }
+                else
+                {
+                    unit.GetHit(attack);
+                }
+                ActiveSquad.TotalDamagePerBattle += attack;
                 EndAttack();
             }
         }
@@ -47,8 +64,16 @@ namespace Maryan.HeroesOfCode
         {
             if(ActiveSquad.Unit.Skill != null)
             {
-                ActiveSquad.Unit.Skill.Cast();
-                EndAttack();
+                var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<UnitBehaviour>;
+                if(targetableSkill == null)
+                {
+                    ActiveSquad.Unit.Skill.Cast();
+                    EndAttack();
+                }
+                else
+                {
+                    _isActivateTargetSkill = true;
+                }
             }
         }
 

@@ -81,8 +81,7 @@ namespace Maryan.HeroesOfCode
                 }
                 var unit = Instantiate(squad.Unit.Prefab);
                 var unitBehaviour = unit.GetComponent<UnitBehaviour>();
-                unitBehaviour.SetSquad(squad);
-                unitBehaviour.IsOwn = _isOwn;
+                unitBehaviour.Init(squad, _isOwn);
                 unitBehaviour.Position = _startPoints.GetPointByIndex(squadIndex);
                 unit.transform.position = _startPoints.GetPositionByIndex(squadIndex);
                 _units.Add(unitBehaviour);

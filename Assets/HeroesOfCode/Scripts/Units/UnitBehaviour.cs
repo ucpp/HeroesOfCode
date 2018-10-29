@@ -7,7 +7,7 @@ namespace Maryan.HeroesOfCode
         public bool IsOwn
         {
             get { return _isOwn; }
-            set { _isOwn = value; }
+            private set { _isOwn = value; }
         }
 
         public Point Position
@@ -53,6 +53,13 @@ namespace Maryan.HeroesOfCode
             get { return _health <= 0; }
         }
 
+        // нанесенный урон юнитом "с руки"
+        public int TotalDamagePerBattle
+        {
+            get;
+            set;
+        }
+
         [SerializeField]
         public UnitRuntimeSet _runtimeSet;
         [SerializeField]
@@ -66,7 +73,26 @@ namespace Maryan.HeroesOfCode
         private int _health;
         private int _startCount;
 
-        public void SetSquad(SquadData squad)
+        public void Init(SquadData squad, bool isOwn)
+        {
+            SetSquad(squad);
+            IsOwn = isOwn;
+            TotalDamagePerBattle = 0;
+        }
+
+        public void InitializeSkill()
+        {
+            if(_squad.Unit.Skill != null)
+            {
+                var skill = _squad.Unit.Skill as IPersonable<UnitBehaviour>;
+                if(skill != null)
+                {
+                    skill.Owner = this;
+                }
+            }
+        }
+
+        private void SetSquad(SquadData squad)
         {
             if(squad != null)
             {
@@ -120,5 +146,10 @@ namespace Maryan.HeroesOfCode
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public abstract class ISquadBehaviourBase
+    {
+
     }
 }
