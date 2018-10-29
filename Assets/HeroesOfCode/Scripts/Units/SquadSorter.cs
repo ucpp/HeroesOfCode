@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    public class UnitSorter : MonoBehaviour
+    public class SquadSorter : MonoBehaviour
     {
         private void Start()
         {

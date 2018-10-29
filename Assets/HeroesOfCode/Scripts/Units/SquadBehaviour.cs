@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    public class UnitBehaviour : MonoBehaviour
+    public class SquadBehaviour : MonoBehaviour
     {
         public bool IsOwn
         {
@@ -61,7 +61,7 @@ namespace Maryan.HeroesOfCode
         }
 
         [SerializeField]
-        public UnitRuntimeSet _runtimeSet;
+        public SquadRuntimeSet _runtimeSet;
         [SerializeField]
         private UnitModificator _selectModificator;
         [SerializeField]
@@ -84,7 +84,7 @@ namespace Maryan.HeroesOfCode
         {
             if(_squad.Unit.Skill != null)
             {
-                var skill = _squad.Unit.Skill as IPersonable<UnitBehaviour>;
+                var skill = _squad.Unit.Skill as IPersonable<SquadBehaviour>;
                 if(skill != null)
                 {
                     skill.Owner = this;
@@ -148,7 +148,7 @@ namespace Maryan.HeroesOfCode
         }
     }
 
-    public abstract class ISquadBehaviourBase
+    public abstract class SquadBehaviourBase
     {
 
     }

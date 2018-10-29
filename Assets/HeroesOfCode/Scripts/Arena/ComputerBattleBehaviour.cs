@@ -13,7 +13,7 @@ namespace Maryan.HeroesOfCode
         }
 
         [SerializeField]
-        private UnitRuntimeSet _unitRuntimeSet;
+        private SquadRuntimeSet _unitRuntimeSet;
         [SerializeField]
         private float _timeToStartAttack;
         [NonSerialized]
@@ -42,7 +42,7 @@ namespace Maryan.HeroesOfCode
             _dt = 0;
         }
 
-        private UnitBehaviour GetRandomSquad()
+        private SquadBehaviour GetRandomSquad()
         {
             var oppositeUnits = _unitRuntimeSet.Items.FindAll(unit => unit.IsOwn && !unit.IsDie);
             if(oppositeUnits.Count > 0)

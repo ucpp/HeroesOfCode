@@ -10,7 +10,7 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private BattleBehaviour _computerBattleBehaviour;
         [SerializeField]
-        private UnitRuntimeSet _unitRuntimeSet;
+        private SquadRuntimeSet _unitRuntimeSet;
         [SerializeField]
         private UnityEvent _onWinBattle;
         [SerializeField]

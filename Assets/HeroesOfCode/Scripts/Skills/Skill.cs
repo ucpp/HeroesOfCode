@@ -9,13 +9,13 @@ namespace Maryan.HeroesOfCode
             get { return _icon; }
         }
 
-        protected UnitRuntimeSet UnitRuntimeSet
+        protected SquadRuntimeSet UnitRuntimeSet
         {
             get { return _unitRuntimeSet; }
         }
 
         [SerializeField]
-        private UnitRuntimeSet _unitRuntimeSet;
+        private SquadRuntimeSet _unitRuntimeSet;
         [SerializeField]
         private string _name;
         [SerializeField]

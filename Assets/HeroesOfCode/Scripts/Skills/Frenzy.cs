@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(Frenzy), menuName = EditorUtils.SkillsMenu + nameof(Frenzy))]
-    public class Frenzy : Skill, ITargetable<UnitBehaviour>, IPersonable<UnitBehaviour>
+    public class Frenzy : Skill, ITargetable<SquadBehaviour>, IPersonable<SquadBehaviour>
     {
         [Tooltip("Base force (C).")]
         [SerializeField]
@@ -13,8 +13,8 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private int _ratio;
 
-        public UnitBehaviour Target { get; set; }
-        public UnitBehaviour Owner { get; set; }
+        public SquadBehaviour Target { get; set; }
+        public SquadBehaviour Owner { get; set; }
 
         public override void Cast()
         {

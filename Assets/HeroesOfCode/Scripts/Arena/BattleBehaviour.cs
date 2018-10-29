@@ -23,7 +23,7 @@ namespace Maryan.HeroesOfCode
             protected set;
         }
 
-        public UnitBehaviour ActiveSquad
+        public SquadBehaviour ActiveSquad
         {
             get { return _activeSquad; }
         }
@@ -43,7 +43,7 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private StartPoints _startPoints;
         [NonSerialized]
-        private List<UnitBehaviour> _units = new List<UnitBehaviour>();
+        private List<SquadBehaviour> _units = new List<SquadBehaviour>();
         [NonSerialized]
         private bool _isOwn = true;
         [NonSerialized]
@@ -55,7 +55,7 @@ namespace Maryan.HeroesOfCode
         [NonSerialized]
         private int _activeSquadIndex = 0;
         [NonSerialized]
-        private UnitBehaviour _activeSquad;
+        private SquadBehaviour _activeSquad;
 
         public void SetArmy(Army army, bool isOwn)
         {
@@ -80,7 +80,7 @@ namespace Maryan.HeroesOfCode
                     continue;
                 }
                 var unit = Instantiate(squad.Unit.Prefab);
-                var unitBehaviour = unit.GetComponent<UnitBehaviour>();
+                var unitBehaviour = unit.GetComponent<SquadBehaviour>();
                 unitBehaviour.Init(squad, _isOwn);
                 unitBehaviour.Position = _startPoints.GetPointByIndex(squadIndex);
                 unit.transform.position = _startPoints.GetPositionByIndex(squadIndex);
@@ -114,7 +114,7 @@ namespace Maryan.HeroesOfCode
 
         public virtual void Update() { }
 
-        public UnitBehaviour GetNextSquad()
+        public SquadBehaviour GetNextSquad()
         {
             ClearDeadsFromList();
 

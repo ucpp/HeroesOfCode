@@ -18,7 +18,7 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private GuiController _guiController;
         [SerializeField]
-        private UnitRuntimeSet _unitRuntimeSet;
+        private SquadRuntimeSet _unitRuntimeSet;
 
         private bool _isActivateTargetSkill = false;
 
@@ -44,7 +44,7 @@ namespace Maryan.HeroesOfCode
                 {
                     _isActivateTargetSkill = false;
                     ActiveSquad.InitializeSkill();
-                    var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<UnitBehaviour>;
+                    var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<SquadBehaviour>;
                     if(targetableSkill != null)
                     {
                         targetableSkill.Target = unit;
@@ -64,7 +64,7 @@ namespace Maryan.HeroesOfCode
         {
             if(ActiveSquad.Unit.Skill != null)
             {
-                var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<UnitBehaviour>;
+                var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<SquadBehaviour>;
                 if(targetableSkill == null)
                 {
                     ActiveSquad.Unit.Skill.Cast();
