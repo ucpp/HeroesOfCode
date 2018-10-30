@@ -21,6 +21,7 @@ namespace Maryan.HeroesOfCode
             get { return _isDie; }
         }
 
+        public bool IsShowInEditor { get; set; }
         [SerializeField]
         private List<SquadData> _squads;
         [NonSerialized]
