@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 113453752}
   - component: {fileID: 113453755}
   - component: {fileID: 113453754}
-  - component: {fileID: 113453756}
   - component: {fileID: 113453757}
+  - component: {fileID: 113453756}
   m_Layer: 0
   m_Name: ArenaBackground
   m_TagString: Untagged
@@ -268,13 +268,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 113453751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707f45f2a07aebe4a8d6694ab2616776, type: 3}
+  m_Script: {fileID: 11500000, guid: 90489b7c90a5577498bb0f448b6192d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enabled: 1
-  _gridColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  _impassableTilecolor: {r: 1, g: 0, b: 0, a: 1}
+  _isEnableEdit: 1
   _grid: {fileID: 11400000, guid: d41454f34e3c5264d90b1fe9c620a82d, type: 2}
+  _gridHit: {fileID: 11400000, guid: de4f15b76e09d9f4db5ee0f7430322c3, type: 2}
+  _gridColor: {r: 0, g: 0, b: 0, a: 1}
+  _impassableTilecolor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &113453757
 MonoBehaviour:
   m_ObjectHideFlags: 0
