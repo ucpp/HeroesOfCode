@@ -22,6 +22,11 @@ namespace Maryan.HeroesOfCode
 
         public Point GetPointByIndex(int index)
         {
+            if(Mathf.Clamp(index, 0, _positions.Count-1) != index)
+            {
+                Debug.LogFormat("Not find point[{0}]!", index);
+                return new Point(0, 0);
+            }
             return _positions[index];
         }
 

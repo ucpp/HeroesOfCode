@@ -30,13 +30,12 @@ namespace Maryan.HeroesOfCode
             if(_computerBattleBehaviour.IsDie)
             {
                 //конец боя, вы победили!
-                //TODO: добавить показ окна победы
                 _onWinBattle.Invoke();
             }
             else
             {
                 _computerBattleBehaviour.OnEndAttack.AddListener(OnEndComputerAttack);
-                _computerBattleBehaviour.StartAttack(_playerBattleBehaviour.Army);
+                _computerBattleBehaviour.StartAttack();
             }
         }
 
@@ -52,7 +51,7 @@ namespace Maryan.HeroesOfCode
             else
             {
                 _playerBattleBehaviour.OnEndAttack.AddListener(OnEndPlayerAttack);
-                _playerBattleBehaviour.StartAttack(_computerBattleBehaviour.Army);
+                _playerBattleBehaviour.StartAttack();
             }
         }
 

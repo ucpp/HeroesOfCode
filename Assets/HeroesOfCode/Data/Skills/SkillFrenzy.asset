@@ -16,4 +16,4 @@ MonoBehaviour:
   _name: Frenzy
   _icon: {fileID: 21300000, guid: f6e413a2e6a37a44eb3d55fc6a6509e2, type: 3}
   _baseForce: 10
-  _ratio: 0
+  _ratio: 1

@@ -34,19 +34,23 @@ namespace Maryan.HeroesOfCode
         {
             get { return _map; }
         }
+        
+        public bool IsShowNumericMap
+        {
+            get { return _isShowNumericMap; }
+        }
 
         [SerializeField]
-        private Vector2 _startPosition;
-
-        [SerializeField]
-        private float _tileWidth;
-
-        [SerializeField]
-        private float _tileHeight;
-
+        private bool _isShowNumericMap;
         [SerializeField]
         private TileMap _map;
-
+        [SerializeField]
+        private Vector2 _startPosition;
+        [SerializeField]
+        private float _tileWidth;
+        [SerializeField]
+        private float _tileHeight;
+        
         public Vector2 GetWorldPositionByPoint(Point point)
         {
             float x = _startPosition.x + point.x * _tileWidth + _tileWidth / 2;

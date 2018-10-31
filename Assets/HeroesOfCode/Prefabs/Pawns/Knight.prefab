@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runtimeSet: {fileID: 11400000, guid: b459afe3e15c58e418f8df7251d72761, type: 2}
   _selectModificator: {fileID: 11400000, guid: 76c2fa8de5fa318448106d25f209010e, type: 2}
+  _objectContainer: {fileID: 483406996862109863}
   _healthBar: {fileID: 5891684805100031568}
 --- !u!1001 &4068585276497151898
 PrefabInstance:

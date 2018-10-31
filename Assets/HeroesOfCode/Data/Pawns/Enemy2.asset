@@ -20,4 +20,4 @@ MonoBehaviour:
   - _unit: {fileID: 11400000, guid: 8c02163b999fb5144a9a7db97769284c, type: 2}
     _count: 30
   - _unit: {fileID: 11400000, guid: 8c02163b999fb5144a9a7db97769284c, type: 2}
-    _count: 100
+    _count: 30

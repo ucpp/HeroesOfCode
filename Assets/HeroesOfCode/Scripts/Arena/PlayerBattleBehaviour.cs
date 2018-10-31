@@ -43,13 +43,7 @@ namespace Maryan.HeroesOfCode
                 if(_isActivateTargetSkill)
                 {
                     _isActivateTargetSkill = false;
-                    ActiveSquad.InitializeSkill();
-                    var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<SquadBehaviour>;
-                    if(targetableSkill != null)
-                    {
-                        targetableSkill.Target = unit;
-                        ActiveSquad.Unit.Skill.Cast();
-                    }
+                    CastTargetableSkill(unit);
                 }
                 else
                 {
@@ -57,6 +51,17 @@ namespace Maryan.HeroesOfCode
                 }
                 ActiveSquad.TotalDamagePerBattle += attack;
                 EndAttack();
+            }
+        }
+
+        private void CastTargetableSkill(SquadBehaviour target)
+        {
+            ActiveSquad.InitializeSkill();
+            var targetableSkill = ActiveSquad.Unit.Skill as ITargetable<SquadBehaviour>;
+            if(targetableSkill != null)
+            {
+                targetableSkill.Target = target;
+                ActiveSquad.Unit.Skill.Cast();
             }
         }
 
@@ -77,16 +82,10 @@ namespace Maryan.HeroesOfCode
             }
         }
 
-        public override void StartAttack(Army oppositeArmy)
+        public override void StartAttack()
         {
-            base.StartAttack(oppositeArmy);
+            base.StartAttack();
             _controller.IsEnable = true;
-        }
-
-        protected override void EndAttack()
-        {
-            base.EndAttack();
-            _controller.IsEnable = false;
         }
 
         public override void Update()
@@ -98,6 +97,12 @@ namespace Maryan.HeroesOfCode
         {
             _controller.Clear();
             _guiController.Clear();
+        }
+
+        protected override void EndAttack()
+        {
+            base.EndAttack();
+            _controller.IsEnable = false;
         }
     }
 }

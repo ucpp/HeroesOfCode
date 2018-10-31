@@ -10,17 +10,22 @@ namespace Maryan.HeroesOfCode
         {
             get { return target as Grid; }
         }
+
         public override void OnInspectorGUI()
         {
+            EditorGUILayout.HelpBox("If you change the grid size, you will lose values of the tiles!", MessageType.Warning);
             base.OnInspectorGUI();
-            for(int y = 0; y < Target.Height; y++)
+            if(Target.IsShowNumericMap)
             {
-                GUILayout.BeginHorizontal();
-                for(int x = 0; x < Target.Width; x++)
+                for(int y = 0; y < Target.Height; y++)
                 {
-                    Target.Map[x, y].Value = EditorGUILayout.IntField(Target.Map[x, y].Value, GUILayout.Width(20));
+                    GUILayout.BeginHorizontal();
+                    for(int x = 0; x < Target.Width; x++)
+                    {
+                        Target.Map[x, y].Value = EditorGUILayout.IntField(Target.Map[x, y].Value, GUILayout.Width(20));
+                    }
+                    GUILayout.EndHorizontal();
                 }
-                GUILayout.EndHorizontal();
             }
         }
     }

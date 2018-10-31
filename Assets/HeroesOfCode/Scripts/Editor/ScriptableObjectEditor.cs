@@ -12,35 +12,40 @@ namespace Maryan.HeroesOfCode
             get { return typeof(T).Name; }
         }
 
-        private List<T> _list = new List<T>();
+        protected List<T> list = new List<T>();
         private List<bool> _isExpand = new List<bool>();
 
-        public void Init()
+        public virtual void Init()
         {
-            _list.Clear();
-            _list = Resources.FindObjectsOfTypeAll<T>().ToList();
-            _isExpand = Enumerable.Repeat(false, _list.Count).ToList();
+            list.Clear();
+            list = Resources.FindObjectsOfTypeAll<T>().ToList();
+            _isExpand = Enumerable.Repeat(false, list.Count).ToList();
         }
 
         public virtual void Draw()
         {
             EditorGUILayout.Separator();
-            for(int i = 0; i < _list.Count; i++)
+            for(int i = 0; i < list.Count; i++)
             {
                 EditorGUILayout.BeginVertical((GUIStyle)"HelpBox");
-                _isExpand[i] = ExtendedEditorGUILayout.BoldFoldout(_isExpand[i], _list[i].name);
+                _isExpand[i] = ExtendedEditorGUILayout.BoldFoldout(_isExpand[i], list[i].name);
                 EditorGUILayout.EndVertical();
 
                 EditorGUI.indentLevel++;
                 if(_isExpand[i])
                 {
                     EditorGUILayout.BeginVertical((GUIStyle)"Box");
-                    var editor = Editor.CreateEditor(_list[i]);
-                    editor.OnInspectorGUI();
+                    DrawValuesBox(i);
                     EditorGUILayout.EndVertical();
                 }
                 EditorGUI.indentLevel--;
             }
+        }
+
+        protected virtual void DrawValuesBox(int index)
+        {
+            var editor = Editor.CreateEditor(list[index]);
+            editor.OnInspectorGUI();
         }
     }
 }

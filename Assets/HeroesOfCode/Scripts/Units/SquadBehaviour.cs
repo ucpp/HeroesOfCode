@@ -65,6 +65,8 @@ namespace Maryan.HeroesOfCode
         [SerializeField]
         private UnitModificator _selectModificator;
         [SerializeField]
+        private Transform _objectContainer;
+        [SerializeField]
         private HealthBar _healthBar;
         
         private bool _isOwn;
@@ -77,7 +79,16 @@ namespace Maryan.HeroesOfCode
         {
             SetSquad(squad);
             IsOwn = isOwn;
+            bool isRightDirection = isOwn;
+            SetDirection(isRightDirection);
             TotalDamagePerBattle = 0;
+        }
+
+        private void SetDirection(bool right)
+        {
+            var scale = _objectContainer.localScale;
+            var direction = right ? 1 : -1;
+            _objectContainer.localScale = new Vector3(scale.x * direction, scale.y, scale.z);
         }
 
         public void InitializeSkill()

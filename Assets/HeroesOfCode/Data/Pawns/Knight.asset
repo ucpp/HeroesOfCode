@@ -15,4 +15,4 @@ MonoBehaviour:
   _maxHealth: 10
   _forceAttack: 1
   _prefab: {fileID: 695055104748860389, guid: 7638dfe3e772a69489cda727f5fd7cce, type: 3}
-  _skill: {fileID: 11400000, guid: 60bffb4e35789654d8821db866c6423f, type: 2}
+  _skill: {fileID: 11400000, guid: 479670082c328194694df2f45c47b53d, type: 2}

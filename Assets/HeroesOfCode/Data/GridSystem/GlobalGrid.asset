@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0705f06aeefa749b0699e1270cd82f, type: 3}
   m_Name: GlobalGrid
   m_EditorClassIdentifier: 
-  _startPosition: {x: -7.72, y: 4.29}
-  _tileWidth: 0.54
-  _tileHeight: 0.54
+  _isShowNumericMap: 0
   _map:
     _height: 15
     _width: 29
@@ -739,3 +737,6 @@ MonoBehaviour:
     - _type: 0
     - _type: 0
     - _type: 0
+  _startPosition: {x: -7.72, y: 4.29}
+  _tileWidth: 0.54
+  _tileHeight: 0.54

@@ -37,26 +37,26 @@ namespace Maryan.HeroesOfCode
         {
             get { return _units.Count == 0; }
         }
-
-        [NonSerialized]
-        protected Army oppositeArmy;
+        
         [SerializeField]
         private StartPoints _startPoints;
-        [NonSerialized]
-        private List<SquadBehaviour> _units = new List<SquadBehaviour>();
-        [NonSerialized]
-        private bool _isOwn = true;
-        [NonSerialized]
-        private bool _isAttacking;
+
         [NonSerialized]
         private UnityEvent _onEndAttack = new UnityEvent();
         [NonSerialized]
         private UnityEvent _onStartAttack = new UnityEvent();
         [NonSerialized]
-        private int _activeSquadIndex = 0;
+        private List<SquadBehaviour> _units = new List<SquadBehaviour>();
         [NonSerialized]
         private SquadBehaviour _activeSquad;
+        [NonSerialized]
+        private bool _isOwn = true;
+        [NonSerialized]
+        private bool _isAttacking;
+        [NonSerialized]
+        private int _activeSquadIndex = 0;
 
+ 
         public void SetArmy(Army army, bool isOwn)
         {
             Army = army;
@@ -70,23 +70,36 @@ namespace Maryan.HeroesOfCode
                 Debug.Log("Army is null!");
                 return;
             }
+
             _activeSquadIndex = 0;
-            int squadIndex = 0;
-            _units.Clear();
-            foreach(var squad in Army.Squads)
-            {
-                if(squad.CurrentCount == 0)
-                {
-                    continue;
-                }
-                var unit = Instantiate(squad.Unit.Prefab);
-                var unitBehaviour = unit.GetComponent<SquadBehaviour>();
-                unitBehaviour.Init(squad, _isOwn);
-                unitBehaviour.Position = _startPoints.GetPointByIndex(squadIndex);
-                unit.transform.position = _startPoints.GetPositionByIndex(squadIndex);
-                _units.Add(unitBehaviour);
-                squadIndex++;
-            }
+            var armyLoader = new ArmyLoader();
+            _units = armyLoader.Load(Army, _startPoints, _isOwn);
+        }
+
+        public virtual void StartAttack()
+        {
+            _isAttacking = true;
+            _activeSquad = GetNextSquad();
+            _activeSquad.Select();
+            _onStartAttack.Invoke();
+        }
+
+        public void CheckState()
+        {
+            ClearDeadsFromList();
+            Army.IsDie = IsDie;
+        }
+
+        public virtual void Update() { }
+
+        public virtual void EndBattle() { }
+
+        protected virtual void EndAttack()
+        {
+            _isAttacking = false;
+            _activeSquad.UnSelect();
+            _activeSquad = null;
+            _onEndAttack.Invoke();
         }
 
         private void OnEnable()
@@ -94,27 +107,7 @@ namespace Maryan.HeroesOfCode
             hideFlags = HideFlags.DontUnloadUnusedAsset;
         }
 
-        public virtual void StartAttack(Army oppositeArmy)
-        {
-            _isAttacking = true;
-            _activeSquad = GetNextSquad();
-            _activeSquad.Select();
-            this.oppositeArmy = oppositeArmy;
-            _onStartAttack.Invoke();
-        }
-
-        protected virtual void EndAttack()
-        {
-            _isAttacking = false;
-            _activeSquad.UnSelect();
-            _activeSquad = null;
-            oppositeArmy = null;
-            _onEndAttack.Invoke();
-        }
-
-        public virtual void Update() { }
-
-        public SquadBehaviour GetNextSquad()
+        private SquadBehaviour GetNextSquad()
         {
             ClearDeadsFromList();
 
@@ -148,13 +141,5 @@ namespace Maryan.HeroesOfCode
         {
             _activeSquadIndex = Mathf.Clamp(_activeSquadIndex, 0, _units.Count - 1);
         }
-
-        public void CheckState()
-        {
-            ClearDeadsFromList();
-            Army.IsDie = IsDie;
-        }
-
-        public virtual void EndBattle() { } 
     }
 }
