@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,9 +6,9 @@ namespace Maryan.HeroesOfCode
 {
     public class GameEditor : EditorWindow
     {
-        private List<Army> _armies = new List<Army>();
+        private List<IScriptableObjectEditor<ScriptableObject>> _editors;
         private Vector2 _scrollPosition = Vector2.zero;
-        private readonly string HelpText = "Max army size is: 7 squads!";
+        private string activeEditor = string.Empty;
 
         [MenuItem(EditorUtils.AssetsMenu + nameof(GameEditor))]
         private static void CreateWindow()
@@ -22,35 +21,52 @@ namespace Maryan.HeroesOfCode
 
         private void OnFocus()
         {
-            _armies.Clear();
-            _armies = Resources.FindObjectsOfTypeAll<Army>().ToList();
+            _editors = new List<IScriptableObjectEditor<ScriptableObject>>();
+            _editors.Add(new ArmyEditor());
+            _editors.Add(new ScriptableObjectEditor<Unit>());
+
+            foreach(var editor in _editors)
+            {
+                if(string.IsNullOrEmpty(activeEditor))
+                {
+                    activeEditor = editor.Name;
+                }
+                editor.Init();
+            }
         }
 
         private void OnGUI()
         {
+            DrawHeader();
             _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
-            EditorGUILayout.HelpBox(HelpText, MessageType.Warning);
-            EditorGUILayout.Separator();
-            for(int i = 0; i < _armies.Count; i++)
-            {
-                var origFontStyle = EditorStyles.label.fontStyle;
-                EditorStyles.foldout.fontStyle = FontStyle.Bold;
-                EditorGUILayout.BeginVertical((GUIStyle)"HelpBox");
-                _armies[i].IsShowInEditor = EditorGUILayout.Foldout(_armies[i].IsShowInEditor, _armies[i].name);
-                EditorGUILayout.EndVertical();
-                EditorStyles.foldout.fontStyle = origFontStyle;
-                EditorGUI.indentLevel++;
-                if(_armies[i].IsShowInEditor)
-                {
-                    EditorGUILayout.BeginVertical((GUIStyle)"Box");
-                    var editor = Editor.CreateEditor(_armies[i]);
-                    editor.OnInspectorGUI();
-                    EditorGUILayout.EndVertical();
-                }
-               
-                EditorGUI.indentLevel--;
-            }
+            DrawEditors();
             EditorGUILayout.EndScrollView();
+        }
+
+        private void DrawHeader()
+        {
+            EditorGUILayout.BeginHorizontal();
+            foreach(var editor in _editors)
+            {
+                bool isSelect = activeEditor == editor.Name;
+                isSelect = GUILayout.Toggle(isSelect, editor.Name, EditorStyles.miniButtonMid);
+                if(isSelect)
+                {
+                    activeEditor = editor.Name;
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+
+        private void DrawEditors()
+        {
+            foreach(var editor in _editors)
+            {
+                if(activeEditor.Equals(editor.Name))
+                {
+                    editor.Draw();
+                }
+            }
         }
     }
 }
