@@ -8,9 +8,14 @@ namespace Maryan.HeroesOfCode
 
         public override void Draw()
         {
+            DrawHelpMessage();
+            base.Draw();
+        }
+        
+        private void DrawHelpMessage()
+        {
             EditorGUILayout.HelpBox(HelpText, MessageType.Warning);
             EditorGUILayout.Separator();
-            base.Draw();
         }
     }
 }
