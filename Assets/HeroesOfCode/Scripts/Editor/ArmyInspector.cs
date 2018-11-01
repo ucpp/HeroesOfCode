@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Maryan.HeroesOfCode
 {
     [CustomEditor(typeof(Army))]
-    public class ArmyInspector : Editor
+    public sealed class ArmyInspector : Editor
     {
         private Army Target
         {

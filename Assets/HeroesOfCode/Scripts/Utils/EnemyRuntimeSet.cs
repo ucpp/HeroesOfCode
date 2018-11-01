@@ -3,5 +3,5 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(EnemyRuntimeSet), menuName = EditorUtils.UtilsMenu + nameof(EnemyRuntimeSet))]
-    public class EnemyRuntimeSet : RuntimeSet<Enemy> { }
+    public sealed class EnemyRuntimeSet : RuntimeSet<Enemy> { }
 }

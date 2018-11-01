@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(ScenesList), menuName = EditorUtils.UtilsMenu + nameof(ScenesList))]
-    public class ScenesList : ScriptableObject
+    public sealed class ScenesList : ScriptableObject
     {
         public string FightSceneName
         {

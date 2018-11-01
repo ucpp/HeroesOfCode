@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(FightSearchHandler), menuName = EditorUtils.GridSystem + nameof(FightSearchHandler))]
-    public class FightSearchHandler : ScriptableObject
+    public sealed class FightSearchHandler : ScriptableObject
     {
         [SerializeField]
         private Grid _globalGrid;

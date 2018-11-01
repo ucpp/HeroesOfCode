@@ -1,17 +1,37 @@
-﻿using UnityEditor;
+﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    public class ArmyEditor : ScriptableObjectEditor<Army>
+    public sealed class ArmyEditor : ScriptableObjectEditor<Army>
     {
-        private readonly string HelpText = "The size of the army can not be more than 7 squads!";
+        private readonly string HelpText = "The size of the army can not be more than {0} squads!";
         private Editor[] _editors;
+        private string _text;
 
         public override void Init()
         {
             base.Init();
+            InitializeWarningMessage();
             _editors = new Editor[list.Count];
+        }
+
+        private void InitializeWarningMessage()
+        {
+            var list = Resources.FindObjectsOfTypeAll<ArenaStartPoints>().ToList();
+            if(list.Count > 0)
+            {
+                int minSize = list[0].Count;
+                foreach(var asset in list)
+                {
+                    if(asset.Count < minSize)
+                    {
+                        minSize = asset.Count;
+                    }
+                }
+                _text = string.Format(HelpText, minSize);
+            }
         }
 
         public override void Draw()
@@ -19,10 +39,10 @@ namespace Maryan.HeroesOfCode
             DrawHelpMessage();
             base.Draw();
         }
-        
+
         private void DrawHelpMessage()
         {
-            EditorGUILayout.HelpBox(HelpText, MessageType.Warning);
+            EditorGUILayout.HelpBox(_text, MessageType.Warning);
             EditorGUILayout.Separator();
         }
 

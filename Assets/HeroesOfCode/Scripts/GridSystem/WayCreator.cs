@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(WayCreator), menuName = EditorUtils.GridSystem + nameof(WayCreator))]
-    public class WayCreator : ScriptableObject
+    public sealed class WayCreator : ScriptableObject
     {
         public Way Way
         {
@@ -17,15 +17,21 @@ namespace Maryan.HeroesOfCode
         private GameObject _etalonDot;
         [NonSerialized]
         private List<Dot> _dots = new List<Dot>();
+        [NonSerialized]
+        private GameObject _dotsContainer;
 
         public void Create()
         {
             _way.Generate();
             var worldPositions = _way.GetWorldPoints();
             var points = _way.Path;
+            if(_dotsContainer == null)
+            {
+                _dotsContainer = new GameObject(nameof(_dotsContainer));
+            }
             while(_dots.Count < points.Length)
             {
-                _dots.Add(new Dot(Instantiate(_etalonDot)));
+                _dots.Add(new Dot(Instantiate(_etalonDot), _dotsContainer));
             }
             for(int i = 0; i < worldPositions.Length; i++)
             {
@@ -61,16 +67,20 @@ namespace Maryan.HeroesOfCode
             _dots.Clear();
         }
 
-        public class Dot
+        public sealed class Dot
         {
             public Point Point { set; get; }
             public GameObject GameObject { set; get; }
 
             public Dot() { }
 
-            public Dot(GameObject gameObject)
+            public Dot(GameObject gameObject, GameObject container = null)
             {
                 GameObject = gameObject;
+                if(container != null)
+                {
+                    GameObject.transform.parent = container.transform;
+                }
             }
         }
     }

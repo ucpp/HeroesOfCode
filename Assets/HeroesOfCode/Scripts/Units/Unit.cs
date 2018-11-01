@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(Unit), menuName = EditorUtils.PawnsMenu + nameof(Unit))]
-    public class Unit : ScriptableObject
+    public sealed class Unit : ScriptableObject
     {
         public GameObject Prefab
         {

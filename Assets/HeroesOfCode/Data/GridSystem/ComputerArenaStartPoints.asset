@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea63b3bc1fe3e44ba43ca0b0af5408f, type: 3}
+  m_Script: {fileID: 11500000, guid: ea02ee8bd397e9548a72dd2fcf165e17, type: 3}
   m_Name: ComputerArenaStartPoints
   m_EditorClassIdentifier: 
   _grid: {fileID: 11400000, guid: d41454f34e3c5264d90b1fe9c620a82d, type: 2}

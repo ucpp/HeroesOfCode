@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(SquadRuntimeSet), menuName = EditorUtils.UtilsMenu + nameof(SquadRuntimeSet))]
-    public class SquadRuntimeSet : RuntimeSet<SquadBehaviour>
+    public sealed class SquadRuntimeSet : RuntimeSet<SquadBehaviour>
     {
         public SquadBehaviour GetUnitByPoint(Point point)
         {

@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(MeteorRain), menuName = EditorUtils.SkillsMenu + nameof(MeteorRain))]
-    public class MeteorRain : Skill
+    public sealed class MeteorRain : Skill
     {
         [Tooltip("Damage force to all units.")]
         [SerializeField]

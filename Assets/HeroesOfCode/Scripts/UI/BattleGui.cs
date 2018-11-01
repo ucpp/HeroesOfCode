@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    public class BattleGui : MonoBehaviour
+    public sealed class BattleGui : MonoBehaviour
     {
         [SerializeField]
         private PlayerBattleBehaviour _playerBattleBehaviour;
@@ -20,23 +20,9 @@ namespace Maryan.HeroesOfCode
 
         private void OnChangeState()
         {
-            if(_playerBattleBehaviour.ActiveSquad != null)
+            if(_playerBattleBehaviour.ActiveSquad != null && _playerBattleBehaviour.ActiveSquad.Unit.Skill != null)
             {
-                var skill = _playerBattleBehaviour.ActiveSquad.Unit.Skill;
-                if(skill == null)
-                {
-                    HideActiveSkillButton();
-                }
-                else
-                {
-                    _activeSkillButton.gameObject.SetActive(true);
-                    _activeSkillButton.OnPress.AddListener(
-                        ()=> {
-                            _guiController.OnPressSkill.Invoke();
-                            HideActiveSkillButton();
-                        });
-                    _activeSkillButton.SetIcon(skill.Icon);
-                }
+                InitializeActiveSkillButton();
             }
             else
             {
@@ -48,6 +34,20 @@ namespace Maryan.HeroesOfCode
         {
             _activeSkillButton.gameObject.SetActive(false);
             _activeSkillButton.OnPress.RemoveAllListeners();
+        }
+
+        private void InitializeActiveSkillButton()
+        {
+            var skill = _playerBattleBehaviour.ActiveSquad.Unit.Skill;
+            _activeSkillButton.gameObject.SetActive(true);
+            _activeSkillButton.OnPress.AddListener(OnPreesSkill);
+            _activeSkillButton.SetIcon(skill.Icon);
+        }
+
+        private void OnPreesSkill()
+        {
+            _guiController.OnPressSkill.Invoke();
+            HideActiveSkillButton();
         }
     }
 }

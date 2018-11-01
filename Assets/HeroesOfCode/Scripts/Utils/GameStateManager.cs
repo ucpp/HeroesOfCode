@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Maryan.HeroesOfCode
 {
-    public class GameStateManager : MonoBehaviour
+    public sealed class GameStateManager : MonoBehaviour
     {
         [SerializeField]
         private ScenesList _scenes;

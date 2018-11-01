@@ -3,7 +3,7 @@ using UnityEditor;
 namespace Maryan.HeroesOfCode
 {
     [CustomEditor(typeof(GameEvent))]
-    public class EventEditor : Editor
+    public sealed class EventEditor : Editor
     {
         public override void OnInspectorGUI()
         {
@@ -11,9 +11,11 @@ namespace Maryan.HeroesOfCode
 
             GUI.enabled = Application.isPlaying;
 
-            GameEvent e = target as GameEvent;
+            GameEvent gameEvent = target as GameEvent;
             if(GUILayout.Button("Raise"))
-                e.Raise();
+            {
+                gameEvent.Raise();
+            }
         }
     }
 }

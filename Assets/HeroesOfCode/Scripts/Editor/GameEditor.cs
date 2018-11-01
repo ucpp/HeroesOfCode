@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Maryan.HeroesOfCode
 {
-    public class GameEditor : EditorWindow
+    public sealed class GameEditor : EditorWindow
     {
         private List<IScriptableObjectEditor<ScriptableObject>> _editors;
         private Vector2 _scrollPosition = Vector2.zero;

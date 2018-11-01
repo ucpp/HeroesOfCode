@@ -1,6 +1,6 @@
 ﻿namespace Maryan.HeroesOfCode
 {
-    public class EditorUtils
+    public sealed class EditorUtils
     {
         public const string AssetsMenu = "Heroes of Code/";
         public const string SkillsMenu = AssetsMenu + "Skills/";

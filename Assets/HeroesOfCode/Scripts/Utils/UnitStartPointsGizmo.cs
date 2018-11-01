@@ -2,7 +2,7 @@
 
 namespace Maryan.HeroesOfCode
 {
-    public class UnitStartPointsGizmo : MonoBehaviour
+    public sealed class UnitStartPointsGizmo : MonoBehaviour
     {
         [SerializeField]
         private float _size = 0.1f;

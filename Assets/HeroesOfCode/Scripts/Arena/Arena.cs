@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Maryan.HeroesOfCode
 {
-    public class Arena : MonoBehaviour
+    public sealed class Arena : MonoBehaviour
     {
         [SerializeField]
         private BattleBehaviour _playerBattleBehaviour;

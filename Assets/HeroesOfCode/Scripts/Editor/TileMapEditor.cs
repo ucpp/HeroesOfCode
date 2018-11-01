@@ -25,12 +25,7 @@ namespace Maryan.HeroesOfCode
                     GUIUtility.hotControl = controlId;
                     if(Event.current.button == 0)
                     {
-                        Vector3 mousePosition = Event.current.mousePosition;
-                        mousePosition.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePosition.y;
-                        mousePosition = SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(mousePosition);
-                        var point = Target.GridHit.GetPoint(mousePosition);
-                        bool isEmptyTile = Target.Grid.Map[point.x, point.y].Value == (int)Tile.Type.Empty;
-                        Target.Grid.Map[point.x, point.y].Value = isEmptyTile ? (int)Tile.Type.Impassable : (int)Tile.Type.Empty;
+                        OnHitTile();
                     }
                     Event.current.Use();
                     break;
@@ -40,6 +35,21 @@ namespace Maryan.HeroesOfCode
                     Event.current.Use();
                     break;
             }
+        }
+
+        private void OnHitTile()
+        {
+            Vector3 mousePosition = Event.current.mousePosition;
+            mousePosition.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePosition.y;
+            mousePosition = SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(mousePosition);
+            var point = Target.GridHit.GetPoint(mousePosition);
+            ChangeTileType(point);
+        }
+
+        private void ChangeTileType(Point point)
+        {
+            bool isEmptyTile = Target.Grid.Map[point.x, point.y].Value == (int)Tile.Type.Empty;
+            Target.Grid.Map[point.x, point.y].Value = isEmptyTile ? (int)Tile.Type.Impassable : (int)Tile.Type.Empty;
         }
     }
 }

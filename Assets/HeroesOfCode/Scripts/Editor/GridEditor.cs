@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Maryan.HeroesOfCode
 {
     [CustomEditor(typeof(Grid))]
-    public class GridEditor : Editor
+    public sealed class GridEditor : Editor
     {
         private Grid Target
         {

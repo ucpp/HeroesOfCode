@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Maryan.HeroesOfCode
 {
-    public class GameEventsSetListener : MonoBehaviour
+    public sealed class GameEventsSetListener : MonoBehaviour
     {
         [SerializeField]
         private List<GameEventListener> _listeners;
@@ -28,7 +28,7 @@ namespace Maryan.HeroesOfCode
     }
 
     [Serializable]
-    public class GameEventListener
+    public sealed class GameEventListener
     {
         [Tooltip("Event to register with.")]
         [SerializeField]

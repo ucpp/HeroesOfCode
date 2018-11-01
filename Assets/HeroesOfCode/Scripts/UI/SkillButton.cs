@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace Maryan.HeroesOfCode
 {
     [RequireComponent(typeof(Button))]
-    public class SkillButton : MonoBehaviour
+    public sealed class SkillButton : MonoBehaviour
     {
         public UnityEvent OnPress
         {

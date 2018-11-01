@@ -3,7 +3,7 @@
 namespace Maryan.HeroesOfCode
 {
     [CreateAssetMenu(fileName = nameof(Frenzy), menuName = EditorUtils.SkillsMenu + nameof(Frenzy))]
-    public class Frenzy : Skill, ITargetable<SquadBehaviour>, IPersonable<SquadBehaviour>
+    public sealed class Frenzy : Skill, ITargetable<SquadBehaviour>, IPersonable<SquadBehaviour>
     {
         [Tooltip("Base force (C).")]
         [SerializeField]

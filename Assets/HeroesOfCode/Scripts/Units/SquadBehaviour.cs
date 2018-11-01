@@ -4,18 +4,6 @@ namespace Maryan.HeroesOfCode
 {
     public class SquadBehaviour : MonoBehaviour
     {
-        public bool IsOwn
-        {
-            get { return _isOwn; }
-            private set { _isOwn = value; }
-        }
-
-        public Point Position
-        {
-            get { return _position; }
-            set { _position = value; }
-        }
-
         public Unit Unit
         {
             get { return _squad.Unit; }
@@ -38,6 +26,13 @@ namespace Maryan.HeroesOfCode
             get { return Count * _squad.Unit.ForceAttack; }
         }
 
+        // нанесенный урон юнитом "с руки"
+        public int TotalDamagePerBattle
+        {
+            get;
+            set;
+        }
+
         public int Health
         {
             get { return _health; }
@@ -48,16 +43,21 @@ namespace Maryan.HeroesOfCode
             }
         }
 
+        public bool IsOwn
+        {
+            get { return _isOwn; }
+            private set { _isOwn = value; }
+        }
+
         public bool IsDie
         {
             get { return _health <= 0; }
         }
 
-        // нанесенный урон юнитом "с руки"
-        public int TotalDamagePerBattle
+        public Point Position
         {
-            get;
-            set;
+            get { return _position; }
+            set { _position = value; }
         }
 
         [SerializeField]
@@ -84,6 +84,16 @@ namespace Maryan.HeroesOfCode
             TotalDamagePerBattle = 0;
         }
 
+        private void SetSquad(SquadData squad)
+        {
+            if(squad != null)
+            {
+                _startCount = squad.CurrentCount;
+                _squad = squad;
+                Health = squad.Unit.Health * squad.CurrentCount;
+            }
+        }
+
         private void SetDirection(bool right)
         {
             var scale = _objectContainer.localScale;
@@ -100,16 +110,6 @@ namespace Maryan.HeroesOfCode
                 {
                     skill.Owner = this;
                 }
-            }
-        }
-
-        private void SetSquad(SquadData squad)
-        {
-            if(squad != null)
-            {
-                _startCount = squad.CurrentCount;
-                _squad = squad;
-                Health = squad.Unit.Health * squad.CurrentCount;
             }
         }
 
@@ -157,10 +157,5 @@ namespace Maryan.HeroesOfCode
         {
             gameObject.SetActive(false);
         }
-    }
-
-    public abstract class SquadBehaviourBase
-    {
-
     }
 }
